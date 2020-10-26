@@ -1,4 +1,4 @@
-// MyString.h
+//     MyString.h
 #ifndef MYSTRING_H
 #define MYSTRING_H
 
