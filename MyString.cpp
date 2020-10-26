@@ -134,3 +134,50 @@ bool operator!=(const String &s1, const String &s2)
 {
 	return !(s1==s2);
 }
+
+
+String String::mid(int pos,int n) const
+{
+	String t1;
+	int i;
+	t1.str = new char[n+1];
+	for(i=0; i<n; i++)
+		t1.str[i] = this->str[pos+i-1];
+	t1.str[i] = '\0';
+	return t1;
+}
+
+int String::stoi() throw(int)
+{
+	int i,n=0,k=0;
+	for(i=0;i<strlen(this->str);i++)
+		{
+			k=this->str[i]-'0';
+			if (k>9) throw 1;
+			n=k+n*10;
+		}
+	return n;
+}
+
+int String::stoi(int pos,int n) 
+{
+	String t;
+	t=this->mid(pos,n);
+	return t.stoi();
+}
+
+String itos(int n) 
+{
+	int k;
+	String t;
+	char c[2];
+	while(n>0)
+	{
+		k=n % 10;
+		c[0]=k+'0';
+		c[1] = '\0';
+		t.insert(0,c);
+		n=n/10;
+	}
+	return t;
+}    

@@ -23,6 +23,11 @@ public:
 	friend bool operator>=(const String &s1, const String &s2);
 	friend bool operator==(const String &s1, const String &s2);
 	friend bool operator!=(const String &s1, const String &s2);
+
+	int stoi() throw(int);                     //转换为整型
+	int stoi(int pos,int n);
+	friend String itos(int n);
+	 String mid(int pos,int n) const; 
 };
 
 #endif
