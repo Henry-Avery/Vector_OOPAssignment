@@ -20,8 +20,8 @@ public:
 	Vector<T> & operator+=(const Vector<T> &v) throw(double);
 	Vector<T> & operator-=(const Vector<T> &v) throw(double);
 	Vector<T> & operator*=(const T &x);
-	template <typename T> friend bool operator==(const Vector<T>& v1, const Vector<T>& v2);
-	template <typename T> friend bool operator!=(const Vector<T>& v1, const Vector<T>& v2);
+	template <typename Type> friend bool operator==(const Vector<Type>& v1, const Vector<Type>& v2);
+	template <typename Type> friend bool operator!=(const Vector<Type>& v1, const Vector<Type>& v2);
 };
 
 template <typename T>
