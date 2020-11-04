@@ -41,17 +41,6 @@ int testVector()
 	cout << "vi1 = " << vi1 << "\nvi2 = " << vi2
 		 << "\nvd1 = " << vd1 << "\nvd2 = " << vd2 << endl;
 
-	cout << "\n维数0重回维数5" << endl;
-	vi1.resize(5);
-	vi2.resize(5);
-	cout << "vi1 = " << vi1 << "\nvi2 = " << vi2
-		<< "\nvd1 = " << vd1 << "\nvd2 = " << vd2 << endl;
-	cout << "\n维数0加减" << endl;
-	cout << "\nvd1 + vd2 = " << vd1 + vd2 << endl;
-
-	vi1.resize(0);
-	vi2.resize(0);
-
 	cout << "\n从文件 vector.txt 中读取的数据：" << endl;
 	ifstream infile("vector.txt");
 	infile >> vi1 >> vi2 >> vd1 >> vd2;

@@ -47,9 +47,9 @@ int test()
 	cin >> v;
 	cout << v << endl;
 	cin.sync();			// 刷新输入流缓冲区（目的是读取并丢弃向量后的换行符）
-	cout << "请输入一个字符串。如 abc 12345   xyz" << endl;
+	cout << "请输入一个字符串。如 abc 12345   xyz" << endl;//不要换行输入
 	cin >> str;						// 并非读取整行
-//	getline(cin, str, 80, '\n');			// 读取整行
+//	getline(cin, str, 80);			// 读取整行
 	cout << str << endl;
 
 	cout << "\n将数据写入文件 output.txt 中..." << endl;
@@ -57,6 +57,12 @@ int test()
 	outfile << v << endl
 			<< str << endl;
 	outfile.close();
+
+	cout << "\n调整对象维数为10，实现多态性" << endl;
+	v.resize(10);
+	str.resize(10);
+	cout << "向量：" << v << endl
+		<< "字符串：\"" << str << "\"" << endl;
 
 	cout << "\n清除对象的数据..." << endl;
 	v.resize(0);
@@ -68,8 +74,8 @@ int test()
 	ifstream infile("output.txt");
 	infile >> v;
 //	infile >> str;				// 并非读取整行
-	getline(infile, str, 100, '\n');	// 将上一行(向量)后的换行符"吃掉"
-	getline(infile, str, 100, '\n');	// 读取整行
+	getline(infile, str, 100);	// 将上一行(向量)后的换行符"吃掉"
+	getline(infile, str, 100);	// 读取整行
 	infile.close();
 	cout << "向量：" << v << endl
 		 << "字符串：\"" << str << "\"" << endl;

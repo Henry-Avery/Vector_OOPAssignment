@@ -13,6 +13,7 @@ public:
 
 	void Input(istream &in);
 	void Output(ostream &out) const;
+	void resize(int size);
 	template <typename TYPE> friend Vector<TYPE> operator+(const Vector<TYPE> &v1, const Vector<TYPE> &v2) throw(double);
 	template <typename TYPE> friend Vector<TYPE> operator-(const Vector<TYPE> &v1, const Vector<TYPE> &v2) throw(double);
 	template <typename TYPE> friend Vector<TYPE> operator*(const T &x, const Vector<TYPE> &v);
@@ -20,8 +21,8 @@ public:
 	Vector<T> & operator+=(const Vector<T> &v) throw(double);
 	Vector<T> & operator-=(const Vector<T> &v) throw(double);
 	Vector<T> & operator*=(const T &x);
-	template <typename TYPE> friend bool operator==(const Vector<TYPE>& v1, const Vector<TYPE>& v2);
-	template <typename TYPE> friend bool operator!=(const Vector<TYPE>& v1, const Vector<TYPE>& v2);
+	template <typename T> friend bool operator==(const Vector<T>& v1, const Vector<T>& v2);
+	template <typename T> friend bool operator!=(const Vector<T>& v1, const Vector<T>& v2);
 };
 
 template <typename T>
@@ -153,4 +154,25 @@ bool operator!=(const Vector<T>& v1, const Vector<T>& v2)
 	return !(v1 == v2);
 }
 
+template <typename T>
+void Vector<T>::resize(int size)			// 指定向量的维数（尽量保留原有的数据）
+{
+	if (size < 0 || size == this->num)
+		return;
+	else if (size == 0)
+	{
+		if (this->p != NULL) delete[] this->p;
+		this->p = NULL;
+		this->num = 0;
+	}
+	else
+	{
+		T* temp = this->p;
+		this->p = new T[size];
+		for (int i = 0; i < size; i++)
+			this->p[i] = (i < this->num) ? temp[i] : 0;	// 尽量保留原有数据
+		this->num = size;
+		delete[] temp;
+	}
+}
 #endif

@@ -1,6 +1,5 @@
 /.*/
 /*.exe
-/*.win
 /Debug/
 /*.sln
 /*.vcxproj*
@@ -11,3 +10,4 @@
 *.depend
 *.mdsp
 .gitignore
+Makefile.win

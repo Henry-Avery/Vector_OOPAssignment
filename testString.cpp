@@ -37,9 +37,9 @@ int testString()
 	cout << "\n从文件 string.txt 中读取的数据：" << endl;
 	ifstream infile("string.txt");
 //	infile >> str1 >> str2 >> str3;		// 以空白字符作为数据项的分隔符
-	getline(infile, str1, 100, '\n');			// 读整行（可含空白字符）
-	getline(infile, str2, 100, '\n');
-	getline(infile, str3, 100, '\n');
+	getline(infile, str1, 100);			// 读整行（可含空白字符）
+	getline(infile, str2, 100);
+	getline(infile, str3, 100);
 	infile.close();
 	cout << "str1 = \"" << str1
 		 << "\"\nstr2 = \"" << str2

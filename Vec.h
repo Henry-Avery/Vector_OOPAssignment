@@ -14,7 +14,7 @@ public:
 	T & operator[](int index) const throw(int);
 					// 方括号运算符函数（引用返回，可作左值）;下表越界时抛掷异常
 	int getsize() const;					// 获取向量的维数（常量成员函数）
-	void resize(int size);					// 调整向量的维数（尽量保留原有的数据）
+	virtual void resize(int size) = 0;					// 调整向量的维数（尽量保留原有的数据）设置成纯虚函数以实现多态性
 
 	virtual void Output(ostream &out) const = 0;// 纯虚函数（常量函数），以便重载的插入运算符享受多态性
 	virtual void Input(istream &in) = 0;		// 纯虚函数，以便重载的插入运算符享受多态性
@@ -79,28 +79,6 @@ template <typename T>
 int VECTOR<T>::getsize() const				// 获取向量的维数（常量成员函数）
 {
 	return num;
-}
-
-template <typename T>
-void VECTOR<T>::resize(int size)			// 指定向量的维数（尽量保留原有的数据）
-{
-	if(size<0 || size==num)
-		return;
-	else if(size==0)
-	{
-		if(p!=NULL) delete [] p;
-		p = NULL;
-		num = 0;
-	}
-	else
-	{
-		T *temp = p;
-		p = new T[size];
-		for(int i=0; i<size; i++)
-			p[i] = (i<num) ? temp[i] : 0;	// 尽量保留原有数据
-		num = size;
-		delete [] temp;	
-	}
 }
 
 template <typename T>
