@@ -22,13 +22,13 @@ int main()
 		{
 		case '1':
 		case 'v':
-		case 'V':	testVector();	break;
+		case 'V':	testVector(); system("pause");	break;
 		case '2':
 		case 's':
-		case 'S':	testString();	break;
+		case 'S':	testString(); system("pause");	break;
 		case '3':
 		case 'm':
-		case 'M':	test();			break;
+		case 'M':	test(); system("pause"); break;
 		case '0':
 		case 'q':
 		case 'Q':
