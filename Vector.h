@@ -10,10 +10,16 @@ template <typename T> class Vector : public VECTOR<T>
 {
 public:
 	Vector(int size=0, const T *x=NULL);
+	Vector(const Vector a,int pos,int n);
 
 	void Input(istream &in);
 	void Output(ostream &out) const;
 	void resize(int size);
+
+	int length() const;
+	void swap(Vector<T> &Str);
+	Vector<T> subvector(int pos,int n) const;
+	
 	template <typename TYPE> friend Vector<TYPE> operator+(const Vector<TYPE> &v1, const Vector<TYPE> &v2) throw(double);
 	template <typename TYPE> friend Vector<TYPE> operator-(const Vector<TYPE> &v1, const Vector<TYPE> &v2) throw(double);
 	template <typename TYPE> friend Vector<TYPE> operator*(const T &x, const Vector<TYPE> &v);
@@ -21,12 +27,17 @@ public:
 	Vector<T> & operator+=(const Vector<T> &v) throw(double);
 	Vector<T> & operator-=(const Vector<T> &v) throw(double);
 	Vector<T> & operator*=(const T &x);
-	template <typename T> friend bool operator==(const Vector<T>& v1, const Vector<T>& v2);
-	template <typename T> friend bool operator!=(const Vector<T>& v1, const Vector<T>& v2);
+	template <typename TYPE> friend bool operator==(const Vector<TYPE>& v1, const Vector<TYPE>& v2);
+	template <typename TYPE> friend bool operator!=(const Vector<TYPE>& v1, const Vector<TYPE>& v2);
 };
 
 template <typename T>
 Vector<T>::Vector(int size, const T *x) : VECTOR<T>(size, x)		// 构造函数
+{
+}
+
+template <typename T>
+Vector<T>::Vector(const Vector a,int pos,int n) : VECTOR<T>(a,pos,n)	// 构造函数
 {
 }
 
@@ -175,4 +186,24 @@ void Vector<T>::resize(int size)			// 指定向量的维数（尽量保留原有的数据）
 		delete[] temp;
 	}
 }
+
+template <typename T>
+int Vector<T>::length() const
+{
+	return this->getsize();			// 此处不用this->num，因为String不是类模板
+}
+
+template <typename T>
+ Vector<T> Vector<T>::subvector(int pos, int n) const
+{
+	Vector temp(*this, pos, n);
+	return temp;
+}
+
+template <typename T>
+void Vector<T>::swap(Vector<T> &Str)
+{
+	this->baes_swap(Str);
+}
+
 #endif

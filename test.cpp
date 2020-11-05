@@ -12,6 +12,7 @@ int main()
 	int choice=1;
 	while(choice)
 	{
+		system("cls");
 		cout << "\n1 --- testing Vector          [v]"
 			 << "\n2 --- testing String          [s]"
 			 << "\n3 --- testing Vector & String [m]"
@@ -28,7 +29,7 @@ int main()
 		case 'S':	testString(); system("pause");	break;
 		case '3':
 		case 'm':
-		case 'M':	test(); system("pause"); break;
+		case 'M':	test(); system("pause");			break;
 		case '0':
 		case 'q':
 		case 'Q':
