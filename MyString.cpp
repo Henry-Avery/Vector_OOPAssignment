@@ -3,11 +3,11 @@
 #include <cstring>
 using namespace std;
 
-String::String(const char *str) : VECTOR<char>(strlen(str), str)	// ¹¹Ôìº¯Êý
+String::String(const char *str) : VECTOR<char>(strlen(str), str)	// æž„é€ å‡½æ•°
 {
 }
 
-String::String(const String a,int pos,int n) : VECTOR<char>(a,pos,n)	// ¹¹Ôìº¯Êý
+String::String(const String a,int pos,int n) : VECTOR<char>(a,pos,n)	// æž„é€ å‡½æ•°
 {
 }
 
@@ -22,20 +22,20 @@ void String::Output(ostream &out) const
 		out << p[i];
 }
 
-void String::Input(istream &in)	// ¾ßÓÐ×Ô¶¯À©Õ¹ÈÝÆ÷ÈÝÁ¿µÄ¹¦ÄÜ
+void String::Input(istream &in)	// å…·æœ‰è‡ªåŠ¨æ‰©å±•å®¹å™¨å®¹é‡çš„åŠŸèƒ½
 {
-	const int N = 1;//1024;		// NÈ¡×îÐ¡Öµ1ÊÇÎªÁËµ÷ÊÔ£¬Êµ¼ÊÊ¹ÓÃÊ±È¡1024
-	char buffer[N], ch;			// ÊäÈë»º³åÇø
+	const int N = 1;//1024;		// Nå–æœ€å°å€¼1æ˜¯ä¸ºäº†è°ƒè¯•ï¼Œå®žé™…ä½¿ç”¨æ—¶å–1024
+	char buffer[N], ch;			// è¾“å…¥ç¼“å†²åŒº
 	int i, j, k, flag;
 	String temp;
 	
-	while(true)					// ¹ýÂËµôÓÐÐ§×Ö·ûÇ°µÄ¿Õ°××Ö·û
+	while(true)					// è¿‡æ»¤æŽ‰æœ‰æ•ˆå­—ç¬¦å‰çš„ç©ºç™½å­—ç¬¦
 	{
-		ch = in.peek();			// Íµ¿´ÏÂÒ»¸ö×Ö·û£¬¿´ÊÇ·ñÎª¿Õ°××Ö·û
+		ch = in.peek();			// å·çœ‹ä¸‹ä¸€ä¸ªå­—ç¬¦ï¼Œçœ‹æ˜¯å¦ä¸ºç©ºç™½å­—ç¬¦
 		if(ch==' ' || ch=='\t' || ch=='\n' || ch=='\r')
-			in.get(ch);			// ÈôÊÇ¿Õ°××Ö·û£¬Ôò¹ýÂËµô£¨¼´¶ÁÈ¡ºó²»ÓÃ£©
+			in.get(ch);			// è‹¥æ˜¯ç©ºç™½å­—ç¬¦ï¼Œåˆ™è¿‡æ»¤æŽ‰ï¼ˆå³è¯»å–åŽä¸ç”¨ï¼‰
 		else
-			break;				// Ö±µ½Óöµ½·Ç¿Õ°××Ö·û£¬½áÊø±¾whileÑ­»·
+			break;				// ç›´åˆ°é‡åˆ°éžç©ºç™½å­—ç¬¦ï¼Œç»“æŸæœ¬whileå¾ªçŽ¯
 	}
 	for(k=0,flag=1; flag==1; k++)
 	{
@@ -50,11 +50,11 @@ void String::Input(istream &in)	// ¾ßÓÐ×Ô¶¯À©Õ¹ÈÝÆ÷ÈÝÁ¿µÄ¹¦ÄÜ
 			else
 				in.get(buffer[i]);
 		}
-		temp.resize(k*N+i);			// ÀûÓÃÁËresizeº¯ÊýµÄ"¾¡Á¿±£ÁôÁËÔ­ÓÐÊý¾Ý"µÄ¹¦ÄÜ
+		temp.resize(k*N+i);			// åˆ©ç”¨äº†resizeå‡½æ•°çš„"å°½é‡ä¿ç•™äº†åŽŸæœ‰æ•°æ®"çš„åŠŸèƒ½
 		for(j=0; j<i; j++)
-			temp[k*N+j] = buffer[j];// ÀûÓÃÁË·½À¨ºÅÔËËã·û
+			temp[k*N+j] = buffer[j];// åˆ©ç”¨äº†æ–¹æ‹¬å·è¿ç®—ç¬¦
 	}
-	*this = temp;					// ÀûÓÃÁË¸³ÖµÔËËã·û£¨Éî¸³ÖµÔËËã£©
+	*this = temp;					// åˆ©ç”¨äº†èµ‹å€¼è¿ç®—ç¬¦ï¼ˆæ·±èµ‹å€¼è¿ç®—ï¼‰
 }
 
 istream & getline(istream &in, String &Str, int n, char delim )
@@ -62,7 +62,7 @@ istream & getline(istream &in, String &Str, int n, char delim )
 	if(n<=0) return in;
 	char *p = new char[n];
 	in.getline(p, n, delim);
-	Str = p;			// ÀûÓÃÁË×ª»»¹¹Ôìº¯Êý¡¢ÒÑ¾­¸³ÖµÔËËã·ûº¯Êý
+	Str = p;			// åˆ©ç”¨äº†è½¬æ¢æž„é€ å‡½æ•°ã€å·²ç»èµ‹å€¼è¿ç®—ç¬¦å‡½æ•°
 	delete [] p;
 	return in;
 }
@@ -139,7 +139,7 @@ bool operator!=(const String &s1, const String &s2)
 	return !(s1==s2);
 }
 
-void String::resize(int size)			// Ö¸¶¨ÏòÁ¿µÄÎ¬Êý£¨¾¡Á¿±£ÁôÔ­ÓÐµÄÊý¾Ý£©
+void String::resize(int size)			// æŒ‡å®šå‘é‡çš„ç»´æ•°ï¼ˆå°½é‡ä¿ç•™åŽŸæœ‰çš„æ•°æ®ï¼‰
 {
 	if (size < 0 || size == num)
 		return;
@@ -154,7 +154,7 @@ void String::resize(int size)			// Ö¸¶¨ÏòÁ¿µÄÎ¬Êý£¨¾¡Á¿±£ÁôÔ­ÓÐµÄÊý¾Ý£©
 		char* temp = p;
 		p = new char[size];
 		for (int i = 0; i < size; i++)
-			p[i] = (i < num) ? temp[i] : ' ';	// ¾¡Á¿±£ÁôÔ­ÓÐÊý¾Ý
+			p[i] = (i < num) ? temp[i] : ' ';	// å°½é‡ä¿ç•™åŽŸæœ‰æ•°æ®
 		num = size;
 		delete[] temp;
 	}
@@ -200,14 +200,14 @@ String& String::insert(int p0, const char* s)
 {
 	if (p0 > num) p0 = num;
 	char *p1 = new char[num + strlen(s) + 1];
-	strncpy(p1, p, p0);		// Ô­×Ö·û´®ÄÚÈÝµÄµÚÒ»²¿·Ö	
+	strncpy(p1, p, p0);		// åŽŸå­—ç¬¦ä¸²å†…å®¹çš„ç¬¬ä¸€éƒ¨åˆ†	
 	p1[p0] = '\0';	
-	strcat(p1, s);				// ²åÈëµÄ²¿·Ö
-	strcat(p1, p+p0);			// Ô­×Ö·û´®µÄÊ£Óà²¿·Ö
-	delete[] p;				// ÊÍ·ÅÔ­×Ö·û´®
-	p = p1;					// ±£´æÐÂ×Ö·û´®µÄÊ×µØÖ·
+	strcat(p1, s);				// æ’å…¥çš„éƒ¨åˆ†
+	strcat(p1, p+p0);			// åŽŸå­—ç¬¦ä¸²çš„å‰©ä½™éƒ¨åˆ†
+	delete[] p;				// é‡Šæ”¾åŽŸå­—ç¬¦ä¸²
+	p = p1;					// ä¿å­˜æ–°å­—ç¬¦ä¸²çš„é¦–åœ°å€
 	num = num + strlen(s) + 1;
-	this->resize(num - 1);                //°Ñ/0¸øÈ¥ÁË
+	this->resize(num - 1);                //æŠŠ/0ç»™åŽ»äº†
 	return *this;
 }
 
