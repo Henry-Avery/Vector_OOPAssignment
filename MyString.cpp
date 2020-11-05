@@ -253,5 +253,5 @@ const char* String::c_str()
 
 void String::swap(String &Str)
 {
-	this->baes_swap(Str);
+	this->base_swap(Str);
 }

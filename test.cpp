@@ -23,17 +23,17 @@ int main()
 		{
 		case '1':
 		case 'v':
-		case 'V':	testVector(); system("pause");	break;
+		case 'V':	testVector();system("pause");break;
 		case '2':
 		case 's':
-		case 'S':	testString(); system("pause");	break;
+		case 'S':	testString();system("pause");break;
 		case '3':
 		case 'm':
-		case 'M':	test(); system("pause");			break;
+		case 'M':	test();system("pause");break;
 		case '0':
 		case 'q':
 		case 'Q':
-		case 27:	choice = 0;		break;
+		case 27:	choice = 0;break;
 		}
 	}
 	return 0;

@@ -10,15 +10,9 @@ void test3();
 void test4();
 
 int testString()
-{   int n;
-    cout << "\n=========================================================" << endl;
-        cout<<  "输入1：基本功能测试"       <<endl;
-		cout<<  "输入2：异常处理测试"       <<endl;
-		cout<<  "输入3：string,int转换测试" <<endl;
-		cout<<  "输入4：文件读写测试" <<endl;
-		cout<<  "输入5：退出" <<endl;
-        cout << "\n=========================================================" << endl;
-	while(cin>>n)
+{   
+	int n;
+	while(true)
 	{
 		system("cls");
         cout << "\n=========================================================" << endl;
@@ -28,19 +22,27 @@ int testString()
 		cout<<  "输入4：文件读写测试" <<endl;
 		cout<<  "输入5：退出" <<endl;
         cout << "\n=========================================================" << endl;
+		cin>>n;
 		if (n==5) break;
 		switch(n){
 		case 1:
 			test1();
+			system("pause");
 			break;
 		case 2:
 			test2();
+			system("pause");
 			break;
 		case 3:
 			test3();
+			system("pause");
 			break;
 		case 4:
 			test4();
+			system("pause");
+			break;
+		default:
+			break;
 		}
 	}
 	return 0;
@@ -124,7 +126,6 @@ void test1()          //基本功能测试
 	
 	//getline(cin,str1,4);
 	//cout << "\"" << str1 << "\"" << endl;
-	getchar();
 }
 
 void test3()    //提取数字
@@ -190,5 +191,4 @@ void test4()
 	cout << "str1 = \"" << str1
 		 << "\"\nstr2 = \"" << str2
 		 << "\"\nstr3 = \"" << str3 << "\"" << endl;
-	
 }

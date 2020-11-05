@@ -17,7 +17,7 @@ public:
 	virtual void Input(istream &in) = 0;		// 纯虚函数，以便重载的插入运算符享受多态性
 
 protected:								// 受保护的（以便派生类的访问属性）
-	void baes_swap(VECTOR &Str);
+	void base_swap(VECTOR &Str);
 	VECTOR(int size=0, const T *x=NULL);	// ① 构造函数（含默认的构造函数、转换构造函数）
 	VECTOR(const VECTOR &Str, int pos, int n);
 	VECTOR(const VECTOR &v);				// ② 拷贝构造函数（实现深拷贝构造）
@@ -162,7 +162,7 @@ int VECTOR<T>::find(T2 &Str) const
 }*/
 
 template <typename T> 
-void VECTOR<T>::baes_swap(VECTOR<T> &Str)
+void VECTOR<T>::base_swap(VECTOR<T> &Str)
 {
 	T *temp = Str.p;
 	Str.p = p;
